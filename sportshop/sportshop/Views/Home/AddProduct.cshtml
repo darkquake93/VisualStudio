@@ -1,0 +1,21 @@
+﻿@model sportshop.Models.Product
+
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddProduct</h2>
+
+<div>
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary()
+	<p>Product Name: @Html.TextBoxFor(x=>x.Name)</p>
+	<p>Product Price: @Html.TextBoxFor(x => x.Price)</p>
+	<p>Product Category: @Html.TextBoxFor(x => x.Category)</p>
+	<p>Product Description: @Html.TextBoxFor(x => x.Description)</p>
+
+	<input type="submit" value="Submit Product" />
+}
+</div>
