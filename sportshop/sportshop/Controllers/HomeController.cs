@@ -35,11 +35,25 @@ namespace sportshop.Controllers
 
 		[HttpPost]
 
+		public ActionResult Edit(Product product)
+		{
+			var _product = db.Products.Single(x => x.ProductID == product.ProductID);
+			if (TryUpdateModel(_product))
+			{
+				return RedirectToAction("ProductList");
+			}
+			else
+			{
+				return View(product);
+			}
+		}
+
 		public ActionResult AddProduct(Product product)
 		{
 			if (ModelState.IsValid)
 			{
-				return View("Index", product);
+				db.Products.Add(product);
+				return RedirectToAction("ProductList");
 			}
 			else
 			{
