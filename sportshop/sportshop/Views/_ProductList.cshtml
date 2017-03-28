@@ -1,0 +1,13 @@
+﻿@model IEnumerable<sportshop.Models.Product>
+
+<ul class="ListView">
+    @foreach (var item in Model)
+    {
+        <li>
+            <span>@Html.DisplayFor(modelItem => item.Name) </span><br />
+            @Html.DisplayFor(modelItem => item.Price) <br />
+            @Html.DisplayFor(modelItem => item.Description) <br />
+            @Html.DisplayFor(modelItem => item.Category) <br />
+        </li>
+    }
+</ul>

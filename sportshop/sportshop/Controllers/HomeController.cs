@@ -14,8 +14,7 @@ namespace sportshop.Controllers
 
 		public ActionResult Index()
 		{
-			var model = db.Products.LastOrDefault();
-			return View(model);
+            return View(db.Products.ToList());
 		}
 
 		private Product myProduct = new Product
