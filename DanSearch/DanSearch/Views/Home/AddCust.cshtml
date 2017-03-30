@@ -1,0 +1,26 @@
+﻿@model DanSearch.Models.Customer
+
+@{
+    ViewBag.Title = "AddCust";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddCust</h2>
+<div>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <p>Customer Name: @Html.TextBoxFor(x=>x.Name)</p>
+    <p>Customer DOB: @Html.TextBoxFor(x => x.DOB)</p>
+    <p>Customer Gender: @Html.TextBoxFor(x => x.Gender)</p>
+    <p>Customer Address1: @Html.TextBoxFor(x => x.Address1)</p>
+    <p>Customer Address2: @Html.TextBoxFor(x => x.Address2)</p>
+    <p>Customer Postcode: @Html.TextBoxFor(x => x.Postcode)</p>
+    <p>Customer Email: @Html.TextBoxFor(x => x.Email)</p>
+    <p>Customer Phone: @Html.TextBoxFor(x => x.Phone)</p>
+    <p>Customer Mobile: @Html.TextBoxFor(x => x.Mobile)</p>
+    <p>Customer Work Location: @Html.TextBoxFor(x => x.WorkLoc)</p>
+
+    <input type="submit" value="Add this Customer" />
+}
+</div>
