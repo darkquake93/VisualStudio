@@ -38,17 +38,62 @@ namespace DanSearch.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ViewResult Edit(int id)
+        {
+            var model = db.Customers.Single(x => x.CustomerID == id);
+            return View(model);
+        }
+        [HttpGet]
+        public ViewResult Delete(int id)
+        {
+            var model = db.Customers.Single(x => x.CustomerID == id);
+            return View(model);
+        }
         [HttpPost]
-        public ViewResult AddCust(Customer customer)
+        public ActionResult AddCust(Customer customer)
         {
             if (ModelState.IsValid)
             {
-                return View("Index", customer);
+                db.Customers.Add(customer);
+                return RedirectToAction("CustList");
             }
             else
             {
                 return View();
             }
+        }
+        [HttpPost]
+        public ActionResult Edit(Customer customer)
+        {
+            var _customer = db.Customers.Single(x => x.CustomerID == customer.CustomerID);
+            if (TryUpdateModel(_customer))
+            {
+                return RedirectToAction("CustList");
+            }
+            else
+            {
+                return View(customer);
+            }
+        }
+        [HttpPost]
+        public ActionResult Delete(Customer customer)
+        {
+            var _customer = db.Customers.Single(x => x.CustomerID == customer.CustomerID);
+            if (TryUpdateModel(_customer))
+            {
+                return RedirectToAction("CustList");
+            }
+            else
+            {
+                return View(customer);
+            }
+        }
+
+        public ViewResult CustList()
+        {
+            var model = db.Customers.ToList();
+            return View(model);
         }
 
         public ActionResult About()
