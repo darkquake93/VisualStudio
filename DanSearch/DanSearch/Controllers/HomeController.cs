@@ -1,9 +1,9 @@
-﻿using DanSearch.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DanSearch.Models;
 
 namespace DanSearch.Controllers
 {
@@ -12,25 +12,11 @@ namespace DanSearch.Controllers
     public class HomeController : Controller
     {
         DanDB db = new DanDB();
-        private Customer myCust = new Customer
-        {
-            CustomerID = 1,
-            Name = "Donald Trump",
-            DOB = 123,
-            Gender = "Male",
-            Address1 = "Boofhead Lane",
-            Address2 = "Hell",
-            Postcode = "HL2017T",
-            Email = "bigly@gmail.com",
-            Phone = 02072034094,
-            Mobile = 07033092039,
-            WorkLoc = "Trumps Place"
-        };
+        
 
         public ActionResult Index()
         {
-            var model = db.Customers.LastOrDefault();
-            return View(myCust);
+            return View(db.Customers.ToList());
         }
 
         [HttpGet]

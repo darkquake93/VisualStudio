@@ -9,21 +9,23 @@
 </div>
 
 <h1>Customer Record</h1>
+
 <div>
-    ID : @Model.CustomerID <br/>
-    Name : @Model.Name <br />
-    DOB : @Model.DOB <br />
-    Gender : @Model.Gender <br />
-    Address Line 1 : @Model.Address1 <br />
-    Address Line 2 : @Model.Address2 <br />
-    Postcode : @Model.Postcode <br />
-    Email : @Model.Email <br />
-    Home Phone : @Model.Phone <br />
-    Mobile Phone : @Model.Mobile <br />
-    Work Location : @Model.WorkLoc <br />
+    @Html.Partial("_CustomerList")
 </div>
 
+<%
+bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+
+if (val1) {
+
+%>
+
 @Html.ActionLink("Add new Customer", "AddCust")
+
+<%
+}
+%>
 
 <div class="row">
     <div class="col-md-4">

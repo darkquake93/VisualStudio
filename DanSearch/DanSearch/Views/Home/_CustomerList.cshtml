@@ -1,0 +1,21 @@
+﻿@model IEnumerable<DanSearch.Models.Customer>
+
+<ul class="ListView">
+    @foreach (var item in Model)
+    {
+        <li>
+            <span>@Html.DisplayFor(modelItem => item.Name) </span><br/>
+            @Html.DisplayFor(modelItem => item.DOB) <br />
+            @Html.DisplayFor(modelItem => item.Gender) <br />
+            @Html.DisplayFor(modelItem => item.Address1) <br />
+            @Html.DisplayFor(modelItem => item.Address2) <br />
+            @Html.DisplayFor(modelItem => item.Postcode) <br />
+            @Html.DisplayFor(modelItem => item.Email) <br />
+            @Html.DisplayFor(modelItem => item.Phone) <br />
+            @Html.DisplayFor(modelItem => item.Mobile) <br />
+            @Html.DisplayFor(modelItem => item.WorkLoc) <br />
+        </li>
+    }
+
+
+</ul>
